@@ -1,0 +1,43 @@
+PROCEDURE dot_Product(V,U: ARRAY_OF FLOAT[n], VAR PS: FLOAT )
+VAR
+    n :INTEGER
+    i,j : INTEGER:=0,
+BEGIN
+    FOR i FROM 0 TO n-1 STEP 1 DO
+        FOR j FROM 0 TO n-1 STEP 1  DO
+            PS := PS + V[i]*U[j]
+        END_FOR
+    END_FOR
+END
+
+ALGORITHM CHECK3-FUNC
+VAR
+    l: INTEGER
+    n,i,j,k: INTEGER :=0;
+    PS: FLOAT :=0;
+    V,U : ARRAY_OF FLOAT[n]
+BEGIN
+    write("type the number of repetition")
+    Read(l)
+    REPEAT
+    Write("type the length of V and U")
+    Read(n)
+    Write("type the elements of V")
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        Read(V[i])
+    END_FOR
+
+    FOR j FROM 0 TO max STEP 1  DO
+        Read(U[j])
+    END_FOR
+
+    dot_Product(V,U,PS)
+    Write(PS)
+    IF (PS = 0) THEN
+        Write("V and U are orthogonals")
+    ELSE 
+    Write("V and U aren't orthogonals")
+    END_IF
+
+    UNTIL (k=l)
+END
